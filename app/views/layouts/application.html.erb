@@ -32,9 +32,11 @@
                 <%= link_to "Users", users_path, class: "nav-link active" %>
               </li>
             </ul>
-            <form class="">
-              <a class="btn btn-outline-primary mr-2" href="#">Login</a>
-            </form>
+            <% if current_user %>
+              <p>Welcome, <%= current_user.email %></p>
+            <% else %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
           </div>
         </div>
       </nav>
