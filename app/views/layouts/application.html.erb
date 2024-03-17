@@ -11,6 +11,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-flouid">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="/home/index">
+            <h3>Garage Sales</h3>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#productsToggle" aria-controls="navToogler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navToogler">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <%= link_to "Products", products_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Contacts", contacts_path, class: "nav-link active" %>
+              </li>
+            </ul>
+            <form class="">
+              <a class="btn btn-outline-primary mr-2" href="#">Login</a>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <%= yield %>
   </body>
 </html>
