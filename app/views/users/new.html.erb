@@ -1,10 +1,8 @@
 <div class="container">
+  <p style="color: green"><%= notice %></p>
   <legend>New user</legend>
-
   <%= render "form", user: @user %>
-
   <br>
-
 <% if current_user_admin %>
   <div>
     <%= link_to "Back to users", users_path %>

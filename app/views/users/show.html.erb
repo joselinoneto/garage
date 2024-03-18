@@ -1,5 +1,6 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
+  <legend>Details</legend>
   <% if current_user_admin %>
     <div id="outer">
       <div class="inner"><%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-primary" %></div>
