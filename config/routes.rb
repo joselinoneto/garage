@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  get 'dashboard/index'
   resources :products
-  resources :contacts
   resources :users
   resources :user_sessions, only: [:new, :create]
   get 'logout' => 'user_sessions#destroy'
