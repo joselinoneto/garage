@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :published, style: "display: block" %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
     <%= form.label :thumbnail %>
     <%= form.file_field :thumbnail %>
   </div>
