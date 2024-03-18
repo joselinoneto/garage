@@ -1,16 +1,31 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
 
-  <h1>Users</h1>
-
+  <legend>Users</legend>
+  <% if current_user_admin %>
+    <%= link_to "New user", new_user_path, class: "btn btn-primary" %>
+    <hr >
+  <% end %>
   <div id="users">
-    <% @users.each do |user| %>
-      <%= render user %>
-      <p>
-        <%= link_to "Show this user", user %>
-      </p>
-    <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Email</th>
+          <th scope="col">Admin</th>
+          <th scope="col">#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <td><%= user.email %></td>
+            <td><%= user.admin%></td>
+            <td><%= link_to "Details", user %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-
-  <%= link_to "New user", new_user_path %>
 </div>

@@ -1,11 +1,12 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-  <p>
-    <% if user.admin %>
-     <p>Admin</p>
-    <% end %>
-  </p>
-</div>
+<form>
+  <fieldset disabled>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Email:</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder=<%= user.email %>>
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Admin</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder=<%= user.admin %>>
+    </div>
+  </fieldset>
+</form>

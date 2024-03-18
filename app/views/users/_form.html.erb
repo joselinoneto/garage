@@ -9,27 +9,28 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control", "aria-describedby": "emailHelp" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: "form-control", "aria-describedby": "emailHelp" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-control", "aria-describedby": "emailHelp" %>
   </div>
-
-  <div>
-    <%= form.label :admin, style: "display: block" %>
-    <%= form.check_box :admin %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <% if current_user_admin %>
+    <div class="form-check">
+      <%= form.label :admin, class: "form-check-label" %>
+      <%= form.check_box :admin, class: "form-check-input" %>
+    </div>
+  <% end %>
+  <br>
+  <div class="form-group">
+    <%= form.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>

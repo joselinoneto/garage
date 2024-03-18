@@ -25,10 +25,7 @@
               <li class="nav-item">
                 <%= link_to "Products", products_path, class: "nav-link active" %>
               </li>
-              <% if current_user %>
-                <li class="nav-item">
-                  <%= link_to "Contacts", contacts_path, class: "nav-link active" %>
-                </li>
+              <% if current_user_admin %>
                 <li class="nav-item">
                   <%= link_to "Users", users_path, class: "nav-link active" %>
                 </li>
@@ -39,7 +36,6 @@
                 Welcome, <%= current_user.email %> 
                 <%= link_to "Logout", logout_path, method: "delete" %>
               </p>
-              
             <% else %>
               <%= link_to "Login", new_user_session_path %>
             <% end %>

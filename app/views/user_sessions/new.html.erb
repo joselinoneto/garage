@@ -1,16 +1,19 @@
 <div class="container">
-    <h1>Login page</h1>
+    <legend>Login page</legend>
     <%= form_with model: @user, url: user_sessions_path do |f| %>
-    <div>
+    <div class="form-group">
         <%= f.label :email %><br>
-        <%= f.text_field :email %>
+        <%= f.text_field :email, class: "form-control", "aria-describedby": "emailHelp" %>
     </div>
-    <div>
+    <div class="form-group">
         <%= f.label :password %><br>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, class: "form-control", "aria-describedby": "emailHelp" %>
     </div>
+    <br>
     <p>
-        <%= f.submit 'Login' %>
+        <%= f.submit 'Login', class: "btn btn-primary" %>
     </p>
+    <br>
+    <%= link_to "Create account", new_user_path  %>
     <% end %>
 </div>
