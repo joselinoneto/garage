@@ -14,14 +14,20 @@
   <div class="dashboard_container">
     <div class="left-menu">
       <ul>
-        <li>
+        <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-                <%= link_to "Products", products_path, class: "nav-link active" %>
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+                <%= link_to "Products", products_list_all_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
             <%= link_to "Users", users_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Logout", logout_path, method: "delete", class: "nav-link active" %>
         </li>
       </ul>
     </div>

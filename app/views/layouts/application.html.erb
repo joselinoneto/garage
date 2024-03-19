@@ -14,32 +14,7 @@
     <div class="container-flouid">
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-          <a class="navbar-brand" href="/">
-            <h3>Garage Sales</h3>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#productsToggle" aria-controls="navToogler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navToogler">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <%= link_to "Products", products_path, class: "nav-link active" %>
-              </li>
-              <% if current_user_admin %>
-                <li class="nav-item">
-                  <%= link_to "Users", users_path, class: "nav-link active" %>
-                </li>
-              <% end %>
-            </ul>
-            <% if current_user %>
-              <p>
-                Welcome, <%= current_user.email %> 
-                <%= link_to "Logout", logout_path, method: "delete" %>
-              </p>
-            <% else %>
-              <%= link_to "Login", new_user_session_path %>
-            <% end %>
-          </div>
+          <%= link_to "Products", products_path, class: "navbar-brand" %>
         </div>
       </nav>
       <%= yield %>

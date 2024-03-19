@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  layout "dashboard"
+
   def new
     @user = User.new
   end
@@ -8,7 +10,7 @@ class UserSessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       redirect_to new_user_session_path
     end
@@ -16,6 +18,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "Signed out."
+    redirect_to dashboard_path, notice: "Signed out."
   end
 end

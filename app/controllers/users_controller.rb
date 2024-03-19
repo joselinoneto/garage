@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action :authorizeUser, only: [:index, :show, :edit, :update, :destroy]
+  before_action :authorize_user
   layout "dashboard"
 
   # GET /users or /users.json
@@ -68,14 +68,5 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :admin)
-    end
-
-    def authorizeUser
-      @currentUser = current_user
-      if @currentUser
-        authorize @currentUser
-      else
-        redirect_to new_user_session_path
-      end
     end
 end

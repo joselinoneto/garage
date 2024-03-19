@@ -9,6 +9,10 @@ class UserPolicy
         validateLocalUser
     end
 
+    def list?
+        validateLocalUser
+    end
+
     def show?
         validateLocalUser
     end
@@ -34,6 +38,6 @@ class UserPolicy
     end
 
     private def validateLocalUser
-        localUser.present? and localUser.admin?
+        user.present? and user.admin?
     end
 end

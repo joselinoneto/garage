@@ -23,12 +23,10 @@
     <%= form.label :password_confirmation, style: "display: block" %>
     <%= form.password_field :password_confirmation, class: "form-control", "aria-describedby": "emailHelp" %>
   </div>
-  <% if current_user_admin %>
-    <div class="form-check">
-      <%= form.label :admin, class: "form-check-label" %>
-      <%= form.check_box :admin, class: "form-check-input" %>
-    </div>
-  <% end %>
+  <div class="form-check">
+    <%= form.label :admin, class: "form-check-label" %>
+    <%= form.check_box :admin, class: "form-check-input" %>
+  </div>
   <br>
   <div class="form-group">
     <%= form.submit "Create", class: "btn btn-primary" %>
