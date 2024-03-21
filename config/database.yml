@@ -83,6 +83,8 @@ test:
 #
 production:
   <<: *default
-  database: garage_production
-  username: garage
+  database: <%= ENV["GARAGE_DATABASE_DATABASE"] %>
+  username: <%= ENV["GARAGE_DATABASE_USERNAME"] %>
   password: <%= ENV["GARAGE_DATABASE_PASSWORD"] %>
+  host: <%= ENV["GARAGE_DATABASE_HOST"] %>
+  port: <%= ENV["GARAGE_DATABASE_PORT"] %>
