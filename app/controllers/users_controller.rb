@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action :authorize_user except: [:new, :create]
+  before_action :authorize_user, except: [:new, :create]
   layout "dashboard"
 
   # GET /users or /users.json
