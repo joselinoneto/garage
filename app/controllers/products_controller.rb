@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authorize_user, except: [:index, :show]
 
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = "*"
+  end
+
   # GET /products or /products.json
   def index
     @products = Product.filter_by_published
@@ -10,6 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/list or /products/list.json
   def list
     @products = Product.all
+    cors_set_access_control_headers
     render layout: "dashboard"
   end
 

@@ -13,12 +13,13 @@
           <% @products.each do |product| %>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-              <%= image_tag product.thumbnail.variant(:thumb), class: "card-img-top" %>
+                <%= image_tag product.thumbnail.variant(:thumb), class: "card-img-top" %>
                 <div class="card-body">
-                  <p class="card-text"><%= product.title %></p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <%= link_to "Details", product, class: "btn btn-sm btn-outline-secondary" %>
+                    <div id="outer">
+                      <div class="inner"><%= link_to product.title, product %></div>
+                      <br>
+                      <div class="inner"><%= link_to "Add", '#', class: "btn btn-sm btn-outline-secondary", onclick: "javascript: sendProduct('" + product.title + "'," + '10' + ")" %></div>
                     </div>
                   </div>
                 </div>
