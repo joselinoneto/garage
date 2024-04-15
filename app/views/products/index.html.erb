@@ -1,31 +1,35 @@
 <div class="container">
   <main role="main">
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Garage Sales</legend>
-        <p class="lead text-muted">Time to upgrade eletronics.</p>
-      </div>
-    </section>
-
+  <%= link_to "Clear Cart", "#", class: "btn btn-danger", remote: true, onclick: "clearCart()" %>
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row">
-          <% @products.each do |product| %>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <%= image_tag product.thumbnail.variant(:thumb), class: "card-img-top" %>
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div id="outer">
-                      <div class="inner"><%= link_to product.title, product %></div>
+        <%= javascript_tag do %>
+          var productsList = <%= @products.to_json.html_safe %>;
+        <% end %>
+        <% @products.each do |product| %>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <%= image_tag product.thumbnail.variant(:thumb), class: "card-img-top" %>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div id="outer">
+                    <div class="inner"><%= product.title %></div>
                       <br>
-                      <div class="inner"><%= link_to "Add", '#', class: "btn btn-sm btn-outline-secondary", onclick: "javascript: sendProduct('" + product.title + "'," + '10' + ")" %></div>
+                    <div class="inner">
+                    <div id="my-div">
+                      <%= link_to "+", "#", id: "my-button", class: "btn btn-primary", remote: true, onclick: "addProductCart(productsList, #{product.id})" %>
+                      <%= link_to "-", "#", id: "my-button", class: "btn btn-danger", remote: true, onclick: "removeItemCart(#{product.id})" %>
                     </div>
+                    </div>
+                    <h1 class="counter-display" id="product-<%= product.id %>">0</h1>
                   </div>
                 </div>
               </div>
             </div>
-          <% end %>
+          </div>
+        <% end %>
+        <%= link_to "Confirm", "#", id: "my-button", class: "btn btn-success", remote: true, onclick: "sendProduct()" %>
         </div>
       </div>
     </div>
