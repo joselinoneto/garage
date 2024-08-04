@@ -240,7 +240,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    rexml (3.3.1)
+    rexml (3.3.3)
       strscan
     ruby-vips (2.2.1)
       ffi (~> 1.12)
